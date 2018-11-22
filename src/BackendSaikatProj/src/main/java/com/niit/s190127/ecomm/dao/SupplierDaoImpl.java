@@ -1,5 +1,4 @@
- package com.niit.s190127.ecomm.dao;
-
+package com.niit.s190127.ecomm.dao;
 
 import java.util.List;
 
@@ -11,18 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.s190127.ecomm.model.Category;
+import com.niit.s190127.ecomm.model.Supplier;
 
-@Repository("categoryDAO")
+@Repository("supplierDAO")
 @Transactional
-public class CategoryDaoImpl implements GenericDao {
+public class SupplierDaoImpl implements GenericDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
 	
 	@Override
 	public boolean addition(Object obj) {
-		// Method to add a category
+		// Method to add supplier
 		
 		try
 		{
@@ -38,7 +37,7 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public boolean deletion(Object obj) {
-		// Method to delete a category
+		// Method to delete supplier
 		
 		try
 		{
@@ -53,7 +52,7 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public boolean updation(Object obj) {
-	// Method to update a category
+	// Method to update supplier
 		
 		try
 		{
@@ -68,23 +67,23 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public Object retrieval(int Id) {
-		// Method to get a category
+		// Method to get supplier
 		 
 		Session session = sessionFactory.openSession();
-		Category category = session.get(Category.class, Id);
+		Supplier supplier = session.get(Supplier.class, Id);
 		session.close();
-		return category;
+		return supplier;
 	}
 
 	@Override
 	public List<Object> listing() {
-		// Method to get a list of categories
+		// Method to get a list of suppliers
 		 Session session = sessionFactory.openSession();
-		 Query query = session.createQuery("from Category");
+		 Query query = session.createQuery("from Supplier");
 		 @SuppressWarnings("unchecked")
-		 List<Object>  listCategories = query.getResultList();
+		 List<Object>  listSuppliers = query.getResultList();
 		 session.close();
-		 return listCategories;
+		 return listSuppliers;
 	}
 
 }

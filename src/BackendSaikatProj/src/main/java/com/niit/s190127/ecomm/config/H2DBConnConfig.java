@@ -9,8 +9,11 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.niit.s190127.ecomm.model.CartItem;
 import com.niit.s190127.ecomm.model.Category;
 import com.niit.s190127.ecomm.model.Product;
+import com.niit.s190127.ecomm.model.Supplier;
+import com.niit.s190127.ecomm.model.UserDetail;
 
 import org.hibernate.SessionFactory;
 import org.springframework.context.annotation.Bean;
@@ -45,6 +48,9 @@ public class H2DBConnConfig {
 		factory.addProperties(hibernateProp);
 		factory.addAnnotatedClass(Category.class);
 		factory.addAnnotatedClass(Product.class);
+		factory.addAnnotatedClass(UserDetail.class);
+		factory.addAnnotatedClass(Supplier.class);
+		factory.addAnnotatedClass(CartItem.class);
 		System.out.println("--Session factory object created--");
 		return factory.buildSessionFactory();
 		

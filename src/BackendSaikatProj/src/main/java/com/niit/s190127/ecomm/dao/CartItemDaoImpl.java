@@ -1,5 +1,4 @@
- package com.niit.s190127.ecomm.dao;
-
+package com.niit.s190127.ecomm.dao;
 
 import java.util.List;
 
@@ -11,18 +10,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.niit.s190127.ecomm.model.Category;
+import com.niit.s190127.ecomm.model.CartItem;
 
-@Repository("categoryDAO")
+@Repository("cartItemDAO")
 @Transactional
-public class CategoryDaoImpl implements GenericDao {
+public class CartItemDaoImpl implements GenericDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
 	
 	@Override
 	public boolean addition(Object obj) {
-		// Method to add a category
+		// Method to add cartItem
 		
 		try
 		{
@@ -38,7 +37,7 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public boolean deletion(Object obj) {
-		// Method to delete a category
+		// Method to delete cartItem
 		
 		try
 		{
@@ -53,7 +52,7 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public boolean updation(Object obj) {
-	// Method to update a category
+	// Method to update cartItem
 		
 		try
 		{
@@ -68,23 +67,23 @@ public class CategoryDaoImpl implements GenericDao {
 
 	@Override
 	public Object retrieval(int Id) {
-		// Method to get a category
+		// Method to get cartItem
 		 
 		Session session = sessionFactory.openSession();
-		Category category = session.get(Category.class, Id);
+		CartItem cartItem = session.get(CartItem.class, Id);
 		session.close();
-		return category;
+		return cartItem;
 	}
 
 	@Override
 	public List<Object> listing() {
-		// Method to get a list of categories
+		// Method to get a list of cartItem
 		 Session session = sessionFactory.openSession();
-		 Query query = session.createQuery("from Category");
+		 Query query = session.createQuery("from CartItem");
 		 @SuppressWarnings("unchecked")
-		 List<Object>  listCategories = query.getResultList();
+		 List<Object>  listCartItems = query.getResultList();
 		 session.close();
-		 return listCategories;
+		 return listCartItems;
 	}
 
 }

@@ -32,7 +32,7 @@ public class ProductDAOJunitTesting {
 	
 
 	//Test case to check add method of productdao class
-	
+	@Ignore
 	@Test
 	public void additionProductTest()
 	{
@@ -43,7 +43,7 @@ public class ProductDAOJunitTesting {
 		product.setProductName("Samsung mobile");
 		product.setStock(5);
 		product.setSupplierId(1);		
-		assertTrue("Probem in Adding the product",productDAO.addition(product));
+		assertTrue("Problem in Adding the product",productDAO.addition(product));
 
 		
 	}
@@ -53,7 +53,7 @@ public class ProductDAOJunitTesting {
 	@Test
 	public void updationProductTest()
 	{
-		Product product= (Product)productDAO.retrieval(1);
+		Product product= (Product)productDAO.retrieval(26);
 		product.setProductDesc("Smart phone with dual processor");
 		assertTrue("Problem in updating product",productDAO.updation(product));
 		
@@ -64,7 +64,7 @@ public class ProductDAOJunitTesting {
 	@Test
 	public void retrievalProductTest()
 	{
-		Product product= (Product)productDAO.retrieval(1);
+		Product product= (Product)productDAO.retrieval(26);
 		System.out.println("Category Id:"+product.getCategoryId());
 		System.out.println("Price:"+product.getPrice());
 		System.out.println("Product Description:"+product.getProductDesc());
@@ -77,11 +77,11 @@ public class ProductDAOJunitTesting {
 	}
 	
 	//Test case to check delete method of productdao class
-	@Ignore
+    @Ignore
 	@Test
 	public void deletionProductTest()
 	{
-		Product product= (Product)productDAO.retrieval(1);
+		Product product= (Product)productDAO.retrieval(26);
 		assertTrue("Problem in deleting product",productDAO.deletion(product));
 		
 	}
