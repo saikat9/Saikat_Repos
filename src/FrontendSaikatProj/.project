@@ -3,6 +3,7 @@
 	<name>FrontendSaikatProj</name>
 	<comment></comment>
 	<projects>
+		<project>BackendSaikatProj</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>
