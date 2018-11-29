@@ -22,7 +22,7 @@ public class CategoryController {
 	GenericDao categoryDAO;
 	
 	//Method to display existing categories
-	@RequestMapping(value="/listcategories")
+	@RequestMapping(value= {"/listcategories","*/listcategories"})
     public String displayCategory(Model categoryModel)
     {
 		List<Object> categoryList = categoryDAO.listing();
@@ -31,7 +31,7 @@ public class CategoryController {
     }
 	
 	//Method to add category from user input
-	@RequestMapping(value="/includecategory",method=RequestMethod.POST)
+	@RequestMapping(value= {"/includecategory","*/includecategory"},method=RequestMethod.POST)
     public String insertCategory(@RequestParam("categoryName")String categoryName,@RequestParam("categoryDesc")String categoryDesc,Model categoryModel)
     {
 		Category category = new Category();
@@ -44,7 +44,7 @@ public class CategoryController {
     }
 	
 	//Method to delete category from category list
-	@RequestMapping(value="/{categoryId}/removeCategory")
+	@RequestMapping(value= {"/{categoryId}/removeCategory","*/{categoryId}/removeCategory"})
     public String removeCategory(@PathVariable("categoryId")int categoryId,Model categoryModel)
     {
 		Object category = categoryDAO.retrieval(categoryId);
@@ -52,10 +52,10 @@ public class CategoryController {
 		List<Object> categoryList = categoryDAO.listing();
 		categoryModel.addAttribute("categoryList", categoryList);	
 		return "Category";
-    }
+    } 
 	
 	//Method to display update category page
-	@RequestMapping(value="/amendCategory/{categoryId}")
+	@RequestMapping(value= {"/amendCategory/{categoryId}","*/amendCategory/{categoryId}"})
     public String amendCategory(@PathVariable("categoryId")int categoryId,Model categoryModel)
     {
 		Object category = categoryDAO.retrieval(categoryId);
@@ -64,7 +64,7 @@ public class CategoryController {
     }	
 		
 	//Method to update category 
-	@RequestMapping(value="/modifyCategory",method=RequestMethod.POST)
+	@RequestMapping(value= {"/modifyCategory","*/modifyCategory"},method=RequestMethod.POST)
     public String modifyCategory(@RequestParam("categoryId")int categoryId,@RequestParam("categoryName")String categoryName,@RequestParam("categoryDesc")String categoryDesc,Model categoryModel)
     {
 		Object categoryObj = categoryDAO.retrieval(categoryId);
