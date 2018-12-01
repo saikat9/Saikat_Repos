@@ -13,7 +13,7 @@
 <body>
 <h3 align="center">Category menu</h3>
 <form action="includecategory" method="post">
-<table class="center">
+<table class="center" class="table table-bordered">
 <tr>
 <td style="text-align: center;">Category Name</td>
 <td style="text-align: center;"><input type="text" name="categoryName"></td>
@@ -41,7 +41,7 @@
 <td style="text-align: center;">${category.categoryName}</td>
 <td style="text-align: center;">${category.categoryDesc}</td>
 <td style="text-align: center;">
-<a href="<c:url value="/amendCategory/${category.categoryId}"/>">Edit</a>
+<a class="btn btn-success" href="<c:url value="/amendCategory/${category.categoryId}"/>">Edit</a>
 </td>
 <td style="text-align: center;">
 <a href="<c:url value="/${category.categoryId}/removeCategory"/>">Delete</a>
