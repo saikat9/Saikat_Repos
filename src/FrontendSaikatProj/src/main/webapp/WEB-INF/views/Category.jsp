@@ -44,7 +44,7 @@
 <a class="btn btn-success" href="<c:url value="/amendCategory/${category.categoryId}"/>">Edit</a>
 </td>
 <td style="text-align: center;">
-<a href="<c:url value="/${category.categoryId}/removeCategory"/>">Delete</a>
+<a class="btn btn-danger" href="<c:url value="/${category.categoryId}/removeCategory"/>">Delete</a>
 </td>
 </tr>
 </c:forEach>
