@@ -26,7 +26,7 @@ public class ProductDaoImpl implements GenericDao {
 		try
 		{
 			
-		sessionFactory.getCurrentSession().save(obj);
+		sessionFactory.getCurrentSession().saveOrUpdate(obj);
 		return true;
 		}
 		catch(Exception ex)

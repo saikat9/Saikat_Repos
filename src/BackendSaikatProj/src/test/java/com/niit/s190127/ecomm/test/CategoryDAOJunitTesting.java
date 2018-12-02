@@ -35,7 +35,7 @@ public class CategoryDAOJunitTesting {
 	
 
 	//Test case to check add method of categorydao class
-	@Ignore
+	
 	@Test
 	public void additionCategoryTest()
 	{
@@ -74,7 +74,7 @@ public class CategoryDAOJunitTesting {
 	}
 	
 	//Test case to check delete method of categorydao class
-	
+	@Ignore
 	@Test
 	public void deletionCategoryTest()
 	{
