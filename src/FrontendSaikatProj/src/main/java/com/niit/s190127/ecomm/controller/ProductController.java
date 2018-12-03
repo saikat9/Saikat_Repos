@@ -116,5 +116,15 @@ public class ProductController {
     		
     	}
     	return listCategories;
-    } 		
+    } 	
+    
+    //Method to display product images
+    @RequestMapping(value={"/showproductimage","*/showproductimage"})
+    public String displayProductImage(Model productModel)
+    {
+    	List<Object> productList=productDAO.listing();
+    	productModel.addAttribute("productList", productList);	
+    	return "ProductImage";
+    }
+    
 }

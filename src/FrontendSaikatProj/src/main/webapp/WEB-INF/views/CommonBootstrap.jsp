@@ -36,19 +36,25 @@ background-color:fuchsia;
 <a class="nav-link" href="#">Home</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Login</a>
+<a class="nav-link" href="login">Login</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Register</a>
+<a class="nav-link" href="register">Register</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">About Us</a>
+<a class="nav-link" href="aboutus">About Us</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="#">Contact Us</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="#">SiteMap</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="listproducts">Product</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="showproductimage">ProductImage</a>
 </li>
 </ul>
 </div>
