@@ -127,4 +127,13 @@ public class ProductController {
     	return "ProductImage";
     }
     
+    //Method to display product information
+    @RequestMapping(value={"/productinfo/{productId}","*/productinfo/{productId}"})
+    public String displayProductInfo(@PathVariable("productId")int productId,Model productModel)
+    {
+    	Product product=(Product)productDAO.retrieval(productId);
+    	productModel.addAttribute("product", product);	
+    	return "ProductInfo";
+    }    
+    
 }
