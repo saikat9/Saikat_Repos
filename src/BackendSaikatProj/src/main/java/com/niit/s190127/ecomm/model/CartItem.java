@@ -11,27 +11,48 @@ public class CartItem {
 	
 	@Id
 	@GeneratedValue
-	private int cartitemId;
+	private int cartId;
+	private int productId;
+	private String userName;
 	private String productName;
-	private String productDesc;
-	private int supplierId;
-	private int categoryId;
-	private int price;	
-	private String supplierName;
-	private String supplierAddr;
-	private String categoryName;
-	private String categoryDesc;
+	private int quantity;
+	private String status;
+	private int price;
 	/**
-	 * @return the cartitemId
+	 * @return the cartId
 	 */
-	public int getCartitemId() {
-		return cartitemId;
+	public int getCartId() {
+		return cartId;
 	}
 	/**
-	 * @param cartitemId the cartitemId to set
+	 * @param cartId the cartId to set
 	 */
-	public void setCartitemId(int cartitemId) {
-		this.cartitemId = cartitemId;
+	public void setCartId(int cartId) {
+		this.cartId = cartId;
+	}
+	/**
+	 * @return the productId
+	 */
+	public int getProductId() {
+		return productId;
+	}
+	/**
+	 * @param productId the productId to set
+	 */
+	public void setProductId(int productId) {
+		this.productId = productId;
+	}
+	/**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return userName;
+	}
+	/**
+	 * @param userName the userName to set
+	 */
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	/**
 	 * @return the productName
@@ -46,40 +67,28 @@ public class CartItem {
 		this.productName = productName;
 	}
 	/**
-	 * @return the productDesc
+	 * @return the quantity
 	 */
-	public String getProductDesc() {
-		return productDesc;
+	public int getQuantity() {
+		return quantity;
 	}
 	/**
-	 * @param productDesc the productDesc to set
+	 * @param quantity the quantity to set
 	 */
-	public void setProductDesc(String productDesc) {
-		this.productDesc = productDesc;
+	public void setQuantity(int quantity) {
+		this.quantity = quantity;
 	}
 	/**
-	 * @return the supplierId
+	 * @return the status
 	 */
-	public int getSupplierId() {
-		return supplierId;
+	public String getStatus() {
+		return status;
 	}
 	/**
-	 * @param supplierId the supplierId to set
+	 * @param status the status to set
 	 */
-	public void setSupplierId(int supplierId) {
-		this.supplierId = supplierId;
-	}
-	/**
-	 * @return the categoryId
-	 */
-	public int getCategoryId() {
-		return categoryId;
-	}
-	/**
-	 * @param categoryId the categoryId to set
-	 */
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+	public void setStatus(String status) {
+		this.status = status;
 	}
 	/**
 	 * @return the price
@@ -92,54 +101,6 @@ public class CartItem {
 	 */
 	public void setPrice(int price) {
 		this.price = price;
-	}
-	/**
-	 * @return the supplierName
-	 */
-	public String getSupplierName() {
-		return supplierName;
-	}
-	/**
-	 * @param supplierName the supplierName to set
-	 */
-	public void setSupplierName(String supplierName) {
-		this.supplierName = supplierName;
-	}
-	/**
-	 * @return the supplierAddr
-	 */
-	public String getSupplierAddr() {
-		return supplierAddr;
-	}
-	/**
-	 * @param supplierAddr the supplierAddr to set
-	 */
-	public void setSupplierAddr(String supplierAddr) {
-		this.supplierAddr = supplierAddr;
-	}
-	/**
-	 * @return the categoryName
-	 */
-	public String getCategoryName() {
-		return categoryName;
-	}
-	/**
-	 * @param categoryName the categoryName to set
-	 */
-	public void setCategoryName(String categoryName) {
-		this.categoryName = categoryName;
-	}
-	/**
-	 * @return the categoryDesc
-	 */
-	public String getCategoryDesc() {
-		return categoryDesc;
-	}
-	/**
-	 * @param categoryDesc the categoryDesc to set
-	 */
-	public void setCategoryDesc(String categoryDesc) {
-		this.categoryDesc = categoryDesc;
 	}
 
 }

@@ -14,19 +14,19 @@ import com.niit.s190127.ecomm.model.CartItem;
 
 @Repository("cartItemDAO")
 @Transactional
-public class CartItemDaoImpl implements GenericDao {
+public class CartItemDaoImpl implements CartItemDao {
 
 	@Autowired
 	SessionFactory sessionFactory;
-	
+
 	@Override
-	public boolean addition(Object obj) {
-		// Method to add cartItem
+	public boolean amendCartItem(CartItem cartItem) {
+		// Method to add/update a cart item
 		
 		try
 		{
 			
-		sessionFactory.getCurrentSession().save(obj);
+		sessionFactory.getCurrentSession().saveOrUpdate(cartItem);
 		return true;
 		}
 		catch(Exception ex)
@@ -36,12 +36,12 @@ public class CartItemDaoImpl implements GenericDao {
 	}
 
 	@Override
-	public boolean deletion(Object obj) {
-		// Method to delete cartItem
+	public boolean removeCartItem(CartItem cartItem) {
+		// Method to delete a cart item
 		
 		try
 		{
-		sessionFactory.getCurrentSession().delete(obj);
+		sessionFactory.getCurrentSession().delete(cartItem);
 		return true;
 		}
 		catch(Exception ex)
@@ -51,39 +51,25 @@ public class CartItemDaoImpl implements GenericDao {
 	}
 
 	@Override
-	public boolean updation(Object obj) {
-	// Method to update cartItem
-		
-		try
-		{
-		sessionFactory.getCurrentSession().update(obj);
-		return true;
-		}
-		catch(Exception ex)
-		{
-			return false;
-		}
-	}
-
-	@Override
-	public Object retrieval(int Id) {
-		// Method to get cartItem
+	public CartItem retrieveCartItem(int cartId) {
+		// Method to get a CartItem
 		 
 		Session session = sessionFactory.openSession();
-		CartItem cartItem = session.get(CartItem.class, Id);
+		CartItem cartItem = session.get(CartItem.class, cartId);
 		session.close();
 		return cartItem;
 	}
 
 	@Override
-	public List<Object> listing() {
-		// Method to get a list of cartItem
+	public List<CartItem> listCartItems(String userName) {
+		// Method to get a list of CartItems
 		 Session session = sessionFactory.openSession();
-		 Query query = session.createQuery("from CartItem");
+		 Query query = session.createQuery("from CartItem where username=:uname and status='N'");
+		 query.setParameter("uname", userName);
 		 @SuppressWarnings("unchecked")
-		 List<Object>  listCartItems = query.getResultList();
+		 List<CartItem>  cartItemList = query.getResultList();
 		 session.close();
-		 return listCartItems;
+		 return cartItemList;
 	}
 
 }
