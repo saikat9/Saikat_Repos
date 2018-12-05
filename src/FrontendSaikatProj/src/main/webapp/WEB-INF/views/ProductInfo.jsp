@@ -7,7 +7,7 @@
 </head>
 <body>
 <br/><br/><br/>
-<form action="/AddToCart/${product.productId}" method="get">
+<form action="<c:url value="/AddToCart/${product.productId}"/>" method="get">
 <div class="container">
 <div class="row">
 <div class="col-xs-4 item-photo">
