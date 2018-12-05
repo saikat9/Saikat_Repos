@@ -64,7 +64,7 @@ public class CartItemDaoImpl implements CartItemDao {
 	public List<CartItem> listCartItems(String userName) {
 		// Method to get a list of CartItems
 		 Session session = sessionFactory.openSession();
-		 Query query = session.createQuery("from CartItem where username=:uname and status='N'");
+		 Query query = session.createQuery("from CartItem where username=:uname and status='active'");
 		 query.setParameter("uname", userName);
 		 @SuppressWarnings("unchecked")
 		 List<CartItem>  cartItemList = query.getResultList();
