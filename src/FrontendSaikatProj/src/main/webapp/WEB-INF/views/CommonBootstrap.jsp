@@ -22,8 +22,8 @@ background-color:fuchsia;
 </style>
 </head>
 <body>
-<nav class="navbar navbar-expand-sm bg-success navbar-light">
-<a class="navbar-brand" href="#"><img src="C:\Users\DELL\Desktop\Home.jpg" width="100" height="100"></a>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+<a class="navbar-brand" href="#"><img src="C:\Users\DELL\Desktop\Home.png" width="65" height="65"></a>
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 <span class="navbar-toggler-icon"></span>
 </button>
