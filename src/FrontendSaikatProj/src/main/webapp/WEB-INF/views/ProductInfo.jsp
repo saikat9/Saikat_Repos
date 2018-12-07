@@ -12,7 +12,7 @@
 <div class="row">
 <div class="col-xs-4 item-photo">
 <c:set var="pid" value="${product.productName}${product.productId}"/>
-<img src="<c:url value="/resource/images/pid.jpg"/>"/>
+<img src="<c:url value="/resources/images/pid.jpg"/>"/>
 </div>
 <div class="col-xs-5" style="border: 0px solid gray">
 <h3>Product Name: ${product.productName}</h3>

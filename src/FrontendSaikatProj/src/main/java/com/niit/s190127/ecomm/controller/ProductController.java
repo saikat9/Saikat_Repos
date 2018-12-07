@@ -48,7 +48,7 @@ public class ProductController {
 		//Test code to display data starts here
 		
 		//Test code to display data ends here
-		String path="C:\\Users\\DELL\\eclipse-workspace\\FrontendSaikatProj\\src\\main\\webapp\\resource\\images\\";
+		String path="C:\\Users\\DELL\\eclipse-workspace\\FrontendSaikatProj\\src\\main\\webapp\\resources\\images\\";
 		path=path+String.valueOf(product.getProductName()+product.getProductId())+".jpg";
 		File imageFile=new File(path);
 		if(!productImage.isEmpty())
