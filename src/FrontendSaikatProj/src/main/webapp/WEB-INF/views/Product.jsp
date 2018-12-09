@@ -10,9 +10,17 @@
     margin-left:auto; 
     margin-right:auto;
  }
+  body {
+    background-color: silver;
+}
+input[type=file]
+{
+padding-left: 23%;
+}
 </style>
 </head>
 <body>
+<h3 align="center">Product menu</h3>
 <div class="container">
 <form:form action="AddProduct" modelAttribute="product" method="post" enctype="multipart/form-data">
 <table class="center" class="table table-bordered">
@@ -32,7 +40,7 @@
 <td style="text-align: center;">Category</td>
 <td style="text-align: center;">
 <form:select path="categoryId">
-<form:option value="0" label="---Select from drop-down---"/>
+<form:option value="0" label="-------Category List-------"/>
 <form:options items="${categoryList}"/>
 </form:select>
 </td>
@@ -47,10 +55,12 @@
 </tr>
 <tr>
 <td style="text-align: center;">Product Image</td>
-<td style="text-align: center;"><form:input type="file" path="pimage"/></td>
+
+<td ><form:input type="file" path="pimage" /></td>
 </tr>
 <tr>
-<td style="text-align: center;" colspan="2">
+<td/>
+<td  >
 <input type="submit" value="Add Product"/>
 </td>
 </tr>

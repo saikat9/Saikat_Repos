@@ -1,3 +1,4 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,32 +26,32 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home <span class="glyphicon glyphicon-home"></span></a>
+            <li class="active"><a href = "http://localhost:8090/FrontendSaikatProj/">Home <span class="glyphicon glyphicon-home"></span></a>
             </li>
-            <li><a href="#">About Us </a>
+            <li><a href="<c:url value="/aboutus"/>">About Us </a>
             </li>
-            <li><a href="#">Contact Us</a>
-            </li>
-            <li>
-            <a href="#">SiteMap</a>
+            <li><a href="<c:url value="/contactus"/>">Contact Us</a>
             </li>
             <li>
-            <a href="listcategories">Category</a>
+            <a href="http://localhost:8090/FrontendSaikatProj/">SiteMap</a>
+            </li>
+            <li>
+            <a href="<c:url value="/listcategories"/>">Category</a>
              </li>
             <li >
-            <a href="listproducts">Product</a>
+            <a href="<c:url value="/listproducts"/>">Product</a>
             </li>
             <li >
-            <a href="showproductimage">ProductImage</a>
+            <a href="<c:url value="/showproductimage"/>">ProductImage</a>
             </li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </li>
-            <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
             
-            <li><a href="#"><span class="glyphicon glyphicon-registration-mark"></span> Register</a>
+            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-registration-mark"></span> Register</a>
             </li>            
           </ul>
         </div>

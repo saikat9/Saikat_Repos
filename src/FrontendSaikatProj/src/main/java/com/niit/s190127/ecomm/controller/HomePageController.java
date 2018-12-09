@@ -30,5 +30,11 @@ public class HomePageController {
 	   
    }   
    
-
+   //Method to display contact us page
+   @RequestMapping(value= {"/contactus","*/contactus"})
+   public String contactusPage()
+   {
+	   return "ContactUs";
+	   
+   } 
 }

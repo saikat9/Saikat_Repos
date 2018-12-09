@@ -8,9 +8,13 @@
     margin-left:auto; 
     margin-right:auto;
  }
+body {
+    background-color: silver;
+}
 </style>
 </head>
 <body>
+
 <h3 align="center">Category menu</h3>
 <form action="includecategory" method="post">
 <table class="center" class="table table-bordered">
@@ -23,7 +27,8 @@
 <td style="text-align: center;"><input type="text" name="categoryDesc"></td>
 </tr>
 <tr>
-<td style="text-align: center;" colspan="2"><input type="submit" value="Add Category"></td>
+<td/>
+<td  style="text-align: center;"><input type="submit" value="Add Category"></td>
 </tr>
 </table>
 </form>

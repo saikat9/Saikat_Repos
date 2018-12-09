@@ -8,6 +8,9 @@
     margin-left:auto; 
     margin-right:auto;
  }
+ body {
+    background-color: silver;
+}
 </style>
 </head>
 <body>
@@ -27,7 +30,8 @@
 <td style="text-align: center;"><input type="text" id="categoryDesc" name="categoryDesc" value="${category.categoryDesc}"></td>
 </tr>
 <tr>
-<td style="text-align: center;" colspan="2"><input type="submit" value="Modify Category"></td>
+<td/>
+<td style="text-align: center;" ><input type="submit" value="Modify Category"></td>
 </tr>
 </table>
 </form>

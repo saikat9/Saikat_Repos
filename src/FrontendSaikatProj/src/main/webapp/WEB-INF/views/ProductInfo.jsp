@@ -4,6 +4,12 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+
+   body {
+    background-color: silver;
+}
+</style>
 </head>
 <body>
 <br/><br/><br/>
