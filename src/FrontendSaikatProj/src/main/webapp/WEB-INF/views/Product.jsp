@@ -13,16 +13,18 @@
   body {
     background-color: silver;
 }
+
 input[type=file]
 {
-padding-left: 23%;
+padding-left: 6.5em;
 }
+
 </style>
 </head>
 <body>
 <h3 align="center">Product menu</h3>
 <div class="container">
-<form:form action="AddProduct" modelAttribute="product" method="post" enctype="multipart/form-data">
+<form:form action="includeproduct" modelAttribute="product" method="post" enctype="multipart/form-data">
 <table class="center" class="table table-bordered">
 <tr>
 <td style="text-align: center;">Product Name</td>
@@ -46,7 +48,7 @@ padding-left: 23%;
 </td>
 </tr>
 <tr>
-<td style="text-align: center;">Supplier</td>
+<td style="text-align: center;">SupplierId</td>
 <td style="text-align: center;"><form:input path="supplierId"/></td>
 </tr>
 <tr>
@@ -55,21 +57,24 @@ padding-left: 23%;
 </tr>
 <tr>
 <td style="text-align: center;">Product Image</td>
-
-<td ><form:input type="file" path="pimage" /></td>
+<td >
+<form:input type="file" path="pimage"  />
+</td>
 </tr>
 <tr>
 <td/>
 <td  >
+<br>
 <input type="submit" value="Add Product"/>
 </td>
 </tr>
 </table>
 </form:form>
-<table class="center" class="table table-bordered">
+<table class="center" class="table table-bordered" border="1">
 <tr>
 <td style="text-align: center;">Product ID</td>
 <td style="text-align: center;">Product Name</td>
+<td style="text-align: center;">Product Description</td>
 <td style="text-align: center;">Category</td>
 <td style="text-align: center;">Price</td>
 <td style="text-align: center;">Supplier</td>
@@ -80,6 +85,7 @@ padding-left: 23%;
 <tr>
 <td style="text-align: center;">${product.productId}</td>
 <td style="text-align: center;">${product.productName}</td>
+<td style="text-align: center;">${product.productDesc}</td>
 <td style="text-align: center;">${product.categoryId}</td>
 <td style="text-align: center;">${product.price}</td>
 <td style="text-align: center;">${product.supplierId}</td>

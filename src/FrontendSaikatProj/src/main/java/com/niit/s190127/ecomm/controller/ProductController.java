@@ -48,7 +48,8 @@ public class ProductController {
 		//Test code to display data starts here
 		
 		//Test code to display data ends here
-		String path="C:\\Users\\DELL\\eclipse-workspace\\FrontendSaikatProj\\src\\main\\webapp\\resources\\images\\";
+		productDAO.addition(product);
+		String path="C:\\Users\\DELL\\eclipse-workspace\\FrontendSaikatProj\\src\\main\\webapp\\WEB-INF\\resources\\images\\";
 		path=path+String.valueOf(product.getProductName()+product.getProductId())+".jpg";
 		File imageFile=new File(path);
 		if(!productImage.isEmpty())
@@ -62,13 +63,13 @@ public class ProductController {
 				bos.close();
 			}
 			catch (Exception ex) {
-				productModel.addAttribute("Error","Exception occured during product image upload"+ex);
+  				productModel.addAttribute("Error","Exception occured during product image upload"+ex);
 			}
 		}
 		else {
 			productModel.addAttribute("Error","Exception occured during product image upload");
 		}
-		productDAO.addition(product);
+		
 		Product product1=new Product();
 		productModel.addAttribute("product", product1);
 		List<Object> productList=productDAO.listing();

@@ -13,22 +13,22 @@
 </head>
 <body>
 <br/><br/><br/>
-<form action="<c:url value="/AddToCart/${product.productId}"/>" method="get">
+<form action="<c:url value="/addtocart/${product.productId}"/>" method="post">
 <div class="container">
 <div class="row">
 <div class="col-xs-4 item-photo">
 <c:set var="pid" value="${product.productName}${product.productId}"/>
-<img src="<c:url value="/resources/images/pid.jpg"/>"/>
+<img src="/resources/images/${product.productName}${product.productId}.jpg"/>
 </div>
 <div class="col-xs-5" style="border: 0px solid gray">
 <h3>Product Name: ${product.productName}</h3>
 <h6 class="title-price">
-<small>Stock : ${product.stock}</small>
+Stock : ${product.stock}
 </h6>
 <h3 style="margin-top: 0px;">Price : INR ${product.price}/-</h3>
 <div class="section">
 <h6 class="title-attr" style="margin-top: 15px;">
-<small>Description : ${product.productDesc}</small>
+Description : ${product.productDesc}
 </h6>
 <div>
 <div class="attr" style="width: 25px; background: #5a5a5a;"></div>

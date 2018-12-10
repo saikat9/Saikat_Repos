@@ -20,12 +20,19 @@
 <c:forEach items="${productList }" var="product">
 <div class="col-lg-3 col-md-4 col-6">
 <a href="<c:url value="/productinfo/${product.productId}"/>" class="d-block mb-4 h-100">
-<c:set var="pid" value="${product.productName}${product.productId}"/>
-<img class="img-fluid img-thumbnail" src="<c:url value="/resources/images/pid.jpg"/>" alt="" width="100" height="100"/>
-<b>Price : ${product.price}/-</b>
-<b>Stock : ${product.stock}/-</b>
+<!--<c:set var="pid" value="${product.productName}${product.productId}" />-->
+<img class="img-fluid img-thumbnail" src="/resources/images/${product.productName}${product.productId}.jpg" alt="" width="100" height="100"/>
+<!--<img src="/resources/images/${product.productName}${product.productId}.jpg" alt="" />  -->
+<!--  <b>Price : ${product.price}/-</b>-->
+<!--  <b>Stock : ${product.stock}/-</b>-->
 <!--  <p>Price : ${product.price}/-</p>-->
 <!-- <p>Stock : ${product.stock}/-</p>-->
+</a>
+<a href="<c:url value="/productinfo/${product.productId}"/>" class="d-block mb-4 h-100">
+<br><b>Price : ${product.price}/-</b>
+</a>
+<a href="<c:url value="/productinfo/${product.productId}"/>" class="d-block mb-4 h-100">
+<br><b>Stock : ${product.stock}/-</b>
 </a>
 </div>
 </c:forEach>
