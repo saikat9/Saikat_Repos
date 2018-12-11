@@ -63,8 +63,11 @@ public class CartController {
 	}
 	
 	//Method to update cart item by user
-	@RequestMapping(value= {"/amendcartitem/{cartId}","*/amendcartitem/{cartId}"})
-	public String amendCartItem(@PathVariable("cartId")int cartId,@RequestParam("quantity")int quantity,Model cartModel,HttpSession httpSession)
+	//@RequestMapping(value= {"/amendcartitem/{cartId}","*/amendcartitem/{cartId}"})
+	//public String amendCartItem(@PathVariable("cartId")int cartId,@RequestParam("quantity")int quantity,Model cartModel,HttpSession httpSession)
+	@RequestMapping(value= {"/amendcartitem/{cartId}/{quantity}","*/amendcartitem/{cartId}/{quantity}"})
+	public String amendCartItem(@PathVariable("cartId")int cartId,@PathVariable("quantity")int quantity,Model cartModel,HttpSession httpSession)
+	
 	{
 		String userName="Kris";
 		CartItem cartItem= cartItemDAO.retrieveCartItem(cartId);

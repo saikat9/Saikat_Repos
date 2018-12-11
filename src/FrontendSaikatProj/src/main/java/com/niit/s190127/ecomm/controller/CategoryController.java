@@ -41,6 +41,7 @@ public class CategoryController {
 		List<Object> categoryList = categoryDAO.listing();
 		categoryModel.addAttribute("categoryList", categoryList);	
 		return "Category";
+		
     }
 	
 	//Method to delete category from category list
