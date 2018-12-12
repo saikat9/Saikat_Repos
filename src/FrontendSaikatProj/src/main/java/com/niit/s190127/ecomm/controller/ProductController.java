@@ -87,9 +87,21 @@ public class ProductController {
 		List<Object> productList=productDAO.listing();
 		productModel.addAttribute("productList", productList);
 		productModel.addAttribute("categoryList", this.fetchCategoryList(categoryDAO.listing()));
-		return "Product";		
+		return "ModifyProduct";		
 		
     }
+	
+	//Method to update product 
+	@RequestMapping(value= {"/modifyProduct","*/modifyProduct"},method=RequestMethod.POST)
+    public String modifyProduct(@ModelAttribute("product")Product product,Model productModel)
+    {
+		productDAO.updation(product);
+		List<Object> productList = productDAO.listing();
+		productModel.addAttribute("productList", productList);
+		Product product1=new Product();
+		productModel.addAttribute("product", product1);		
+		return "Product";
+    }		
 	
 	//Method to delete product from product list
 	@RequestMapping(value= {"/{productId}/removeProduct","*/{productId}/removeProduct"})

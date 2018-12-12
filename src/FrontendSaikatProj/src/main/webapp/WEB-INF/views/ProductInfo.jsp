@@ -1,9 +1,11 @@
 <%@include file="CommonNavbar.jsp" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html>
 <head>
+
 <style type="text/css">
 
    body {
@@ -12,6 +14,11 @@
 </style>
 </head>
 <body>
+<script>
+function myFunction() {
+    document.getElementById("quantity").stepUp(5);
+}
+</script>
 <br/><br/><br/>
 <form action="<c:url value="/addtocart/${product.productId}"/>" method="post">
 <div class="container">
@@ -36,13 +43,7 @@ Description : ${product.productDesc}
 </div>
 </div>
 <div>
-<div class="btn-minus">
-<span class="glyphicon glyphicon-minus"></span>
-</div>
-<input value="1" name="quantity"/>
-<div class="btn-plus">
-<span class="glyphicon glyphicon-plus"></span>
-</div>
+<input value="1" name="quantity" id="quantity" type="number" min="1"/>
 </div>
 <div class="section" style="padding-bottom: 20px;">
 <input type="submit" class="btn btn-success" value="Add To Cart">

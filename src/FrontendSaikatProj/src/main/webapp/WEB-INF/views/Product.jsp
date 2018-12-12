@@ -78,6 +78,7 @@ padding-left: 6.5em;
 <td style="text-align: center;">Category</td>
 <td style="text-align: center;">Price</td>
 <td style="text-align: center;">Supplier</td>
+<td style="text-align: center;">Stock</td>
 <td style="text-align: center;">Edit</td>
 <td style="text-align: center;">Delete</td>
 </tr>
@@ -89,6 +90,7 @@ padding-left: 6.5em;
 <td style="text-align: center;">${product.categoryId}</td>
 <td style="text-align: center;">${product.price}</td>
 <td style="text-align: center;">${product.supplierId}</td>
+<td style="text-align: center;">${product.stock}</td>
 <td style="text-align: center;">
 <a class="btn btn-success" href="<c:url value="/amendProduct/${product.productId}"/>">Edit</a>
 </td>

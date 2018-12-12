@@ -81,7 +81,7 @@ public class CartController {
 	
 	//Method to delete cart item by user
 	@RequestMapping(value= {"/removecartitem/{cartId}","*/removecartitem/{cartId}"})
-	public String removeCartItem(@PathVariable("cartId")int cartId,@RequestParam("quantity")int quantity,Model cartModel,HttpSession httpSession)
+	public String removeCartItem(@PathVariable("cartId")int cartId,Model cartModel,HttpSession httpSession)
 	{
 		String userName="Kris";
 		CartItem cartItem= cartItemDAO.retrieveCartItem(cartId);
