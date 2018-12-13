@@ -33,9 +33,6 @@
             <li><a href="<c:url value="/contactus"/>">Contact Us</a>
             </li>
             <li>
-            <a href="http://localhost:8090/FrontendSaikatProj/">SiteMap</a>
-            </li>
-            <li>
             <a href="<c:url value="/listcategories"/>">Category</a>
              </li>
             <li >
@@ -50,9 +47,6 @@
             </li>
             <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
-            
-            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-registration-mark"></span> Register</a>
-            </li>            
           </ul>
         </div>
       </div>

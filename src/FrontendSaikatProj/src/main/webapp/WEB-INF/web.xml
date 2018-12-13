@@ -14,7 +14,16 @@
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
-    
+ 
+ <!-- spring security filter implementation -->   
+ <filter>
+ <filter-name>springSecurityFilterChain</filter-name>
+ <filter-class>org.springframework.web.filter.delegatingfilterproxy</filter-class>
+ </filter>
+ <filter-mapping>
+ <filter-name>springSecurityFilterChain</filter-name>
+ <url-pattern>/*</url-pattern>
+ </filter-mapping>
  <!-- dispatcher servlet name -->   
     <servlet>
         <servlet-name>ecomm-niit-dispatcher</servlet-name>

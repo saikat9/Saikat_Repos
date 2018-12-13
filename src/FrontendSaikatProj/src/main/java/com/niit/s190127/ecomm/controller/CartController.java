@@ -62,11 +62,20 @@ public class CartController {
 		return totalPrice;
 	}
 	
+	//Method to display update cart page
+	@RequestMapping(value= {"/amendcartitem/{cartId}","*/amendcartitem/{cartId}"})
+    public String amendCartItem(@PathVariable("cartId")int cartId,Model cartModel)
+    {
+		CartItem cartItem= cartItemDAO.retrieveCartItem(cartId);
+		cartModel.addAttribute("cartItem", cartItem);	
+		return "ModifyCart";
+    }		
+	
 	//Method to update cart item by user
 	//@RequestMapping(value= {"/amendcartitem/{cartId}","*/amendcartitem/{cartId}"})
 	//public String amendCartItem(@PathVariable("cartId")int cartId,@RequestParam("quantity")int quantity,Model cartModel,HttpSession httpSession)
-	@RequestMapping(value= {"/amendcartitem/{cartId}/{quantity}","*/amendcartitem/{cartId}/{quantity}"})
-	public String amendCartItem(@PathVariable("cartId")int cartId,@PathVariable("quantity")int quantity,Model cartModel,HttpSession httpSession)
+	@RequestMapping(value= {"/modifyCart","*/modifyCart"})
+	public String modifyCart(@RequestParam("cartId")int cartId,@RequestParam("quantity")int quantity,Model cartModel,HttpSession httpSession)
 	
 	{
 		String userName="Kris";

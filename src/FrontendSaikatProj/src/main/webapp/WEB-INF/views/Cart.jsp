@@ -24,12 +24,13 @@
 
 <td>${loop.index + 1}</td>
 <td> ${cartItem.productName}</td>
-<td> <input type="text" name="quantity" value="${cartItem.quantity}"/></td>
+<td> ${cartItem.quantity}</td>
+<!--<input type="text" name="quantity" id="quantity" value="${cartItem.quantity}"/>  -->
 <td> ${cartItem.price}</td>
 <td> ${cartItem.quantity * cartItem.price}/-</td>
 <td>
-<!-- <input type="submit" value="Update" class="btn btn-success"/> -->
-<a class="btn btn-success" href="<c:url value="/amendcartitem/${cartItem.cartId}/${cartItem.quantity}"/>">Update</a>
+<!--<input type="submit" value="Update" class="btn btn-success"/>  -->
+<a class="btn btn-success" href="<c:url value="/amendcartitem/${cartItem.cartId}"/>">Update</a>
 </td>
 <td>
 <!-- <a class="btn btn-danger" href="<c:url value="/removecartitem/${cartItem.cartId}"/>" method="get">Delete</a> -->
