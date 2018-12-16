@@ -32,21 +32,40 @@
             </li>
             <li><a href="<c:url value="/contactus"/>">Contact Us</a>
             </li>
+          <c:if test="${sessionScope.loggedIn }">
+           <c:if test="${sessionScope.role=='Admin'}">
             <li>
-            <a href="<c:url value="/listcategories"/>">Category</a>
+            <a href="<c:url value="/listcategories"/>">Manage Category</a>
              </li>
             <li >
-            <a href="<c:url value="/listproducts"/>">Product</a>
+            <a href="<c:url value="/listproducts"/>">Manage Product</a>
             </li>
+            </c:if>
+            <c:if test="${sessionScope.role=='User'}">
             <li >
             <a href="<c:url value="/showproductimage"/>">ProductImage</a>
-            </li>            
+            </li> 
+            <li >
+            <a href="<c:url value="/cartitems"/>">CartMenu</a>
+            </li>             
+            </c:if>
+           </c:if>           
           </ul>
           <ul class="nav navbar-nav navbar-right">
+           <c:if test="${!sessionScope.loggedIn }">
             <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </li>
-            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span> Login</a>
             </li>
+           </c:if>
+           <c:if test="${sessionScope.loggedIn }">
+            <div id="userdetail">
+             <font color="white">
+             Welcome ${sessionScope.username }
+             <a href="<c:url value="/perform_logout"/>" class="btn btn-danger">Logout</a>
+             </font>
+            </div>
+           </c:if>
           </ul>
         </div>
       </div>

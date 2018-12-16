@@ -9,7 +9,7 @@
 <!-- dispatcher servlet xml name -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/ecomm-niit-dispatcher-servlet.xml</param-value>
+        <param-value>/WEB-INF/ecomm-niit-dispatcher-servlet.xml,/WEB-INF/SpringSecurityConfig.xml</param-value>
     </context-param>
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
@@ -18,7 +18,7 @@
  <!-- spring security filter implementation -->   
  <filter>
  <filter-name>springSecurityFilterChain</filter-name>
- <filter-class>org.springframework.web.filter.delegatingfilterproxy</filter-class>
+ <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
  </filter>
  <filter-mapping>
  <filter-name>springSecurityFilterChain</filter-name>

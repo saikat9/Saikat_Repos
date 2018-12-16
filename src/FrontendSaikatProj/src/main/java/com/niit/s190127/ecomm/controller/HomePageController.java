@@ -26,6 +26,10 @@ public class HomePageController {
    @RequestMapping(value= {"/aboutus","*/aboutus"})
    public String aboutusPage()
    {
+	   //String p = "password@123";
+	   //BCryptPasswordEncoder pe= new BCryptPasswordEncoder();
+	   //String encPassword =pe.encode(p);
+	   //System.out.println(encPassword);
 	   return "AboutUs";
 	   
    }   
