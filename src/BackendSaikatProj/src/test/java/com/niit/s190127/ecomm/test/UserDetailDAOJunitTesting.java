@@ -1,6 +1,6 @@
 package com.niit.s190127.ecomm.test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
 import org.junit.Ignore;

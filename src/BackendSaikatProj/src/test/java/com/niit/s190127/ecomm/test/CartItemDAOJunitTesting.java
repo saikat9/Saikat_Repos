@@ -89,7 +89,7 @@ public class CartItemDAOJunitTesting {
 	@Test
 	public void listingCartItemsTest()
 	{
-		List<CartItem> listCartItems = cartItemDAO.listCartItems("Kris");
+		List<CartItem> listCartItems = cartItemDAO.listCartItems("Rohan");
 		
 		assertTrue("Problem in listing cartItem",listCartItems.size()>0);
 		
@@ -99,6 +99,7 @@ public class CartItemDAOJunitTesting {
 			System.out.print("cartItem price:"+cartItem.getPrice());
 			System.out.print("cartItem product name:"+cartItem.getProductName());
 			System.out.println("cartItem user:"+cartItem.getUserName());
+			System.out.println("cart item status:"+cartItem.getStatus());
 		}
 		
 	}

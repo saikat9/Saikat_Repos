@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import com.niit.s190127.ecomm.model.CartItem;
 import com.niit.s190127.ecomm.model.Category;
+import com.niit.s190127.ecomm.model.CustomerOrder;
 import com.niit.s190127.ecomm.model.Product;
 import com.niit.s190127.ecomm.model.Supplier;
 import com.niit.s190127.ecomm.model.UserDetail;
@@ -51,6 +52,7 @@ public class H2DBConnConfig {
 		factory.addAnnotatedClass(UserDetail.class);
 		factory.addAnnotatedClass(Supplier.class);
 		factory.addAnnotatedClass(CartItem.class);
+		factory.addAnnotatedClass(CustomerOrder.class);
 		System.out.println("--Session factory object created--");
 		return factory.buildSessionFactory();
 		
