@@ -2,7 +2,7 @@ package com.niit.s190127.ecomm.test;
 
 import static org.junit.Assert.assertTrue;
 
-import java.sql.Date;
+import java.util.Date;
 
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -32,20 +32,21 @@ public class CustomerOrderDAOJunitTesting {
 	}	
 	
 	//Junit test case to check insert process of customer order dao class
-	@Ignore
+    @Ignore
 	@Test
 	public void additionCustomerOrderTest() 
 	{
 		
 		CustomerOrder customerOrder=new CustomerOrder();
-		customerOrder.setDateOfOrder(new Date(0));
-		customerOrder.setOrderPrice(5000);
+		customerOrder.setDateOfOrder(new Date());
+		customerOrder.setOrderPrice(6000);
 		customerOrder.setPaymentMode("Card");
 		customerOrder.setUserName("Rohan");
 		assertTrue("Problem in processing customer order", customerOrderDAO.orderProcess(customerOrder));
 	}
 
 	//Junit test case to check update process of customer order dao class
+	@Ignore
 	@Test
 	public void updationCustomerOrderTest() 
 	{
