@@ -26,7 +26,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href = "http://localhost:8090/FrontendSaikatProj/">Home <span class="glyphicon glyphicon-home"></span></a>
+            <li class="active"><a href = "<c:url value="/login_success"/>">Home <span class="glyphicon glyphicon-home"></span></a>
             </li>
             <li><a href="<c:url value="/aboutus"/>">About Us </a>
             </li>
@@ -47,26 +47,34 @@
             </li> 
             <li >
             <a href="<c:url value="/cartitems"/>">CartMenu</a>
-            </li>             
+            </li> 
+           <li class="nav-item dropdown"> 
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Category Types</a>         
+            <div class="dropdown-menu">
+             <c:forEach items="${categoryList}" var="category">
+               <a class="dropdown-item" href="#">${category.categoryName }</a><br>
+             </c:forEach>
+            </div>
+            </li>	
             </c:if>
            </c:if>           
           </ul>
           <ul class="nav navbar-nav navbar-right">
-           <c:if test="${!sessionScope.loggedIn }">
+           <c:if test="${!sessionScope.loggedIn}">
             <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </li>
-            <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span> Login</a>
+            <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             </li>
-           </c:if>
-           <c:if test="${sessionScope.loggedIn }">
-            <div id="userdetail">
+            </c:if>
+            <c:if test="${sessionScope.loggedIn }">
+             <div id="userdetail">
              <font color="white">
              Welcome ${sessionScope.username }
              <a href="<c:url value="/perform_logout"/>" class="btn btn-danger">Logout</a>
              </font>
-            </div>
-           </c:if>
-          </ul>
+             </div>
+            </c:if>
+           </ul>
         </div>
       </div>
     </nav>

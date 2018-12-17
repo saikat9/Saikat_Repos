@@ -61,6 +61,8 @@ public class CategoryController {
     {
 		Object category = categoryDAO.retrieval(categoryId);
 		categoryModel.addAttribute("category", category);	
+		List<Object> categoryList = categoryDAO.listing();
+		categoryModel.addAttribute("categoryList", categoryList);			
 		return "ModifyCategory";
     }	
 		

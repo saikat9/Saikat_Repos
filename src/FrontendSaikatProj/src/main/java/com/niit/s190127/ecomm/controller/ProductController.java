@@ -36,7 +36,9 @@ public class ProductController {
 		productModel.addAttribute("productList", productList);
 		Product product=new Product();
 		productModel.addAttribute("product", product);
-		productModel.addAttribute("categoryList", this.fetchCategoryList(categoryDAO.listing()));
+		productModel.addAttribute("categoryListMap", this.fetchCategoryList(categoryDAO.listing()));
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);		
 		return "Product";
 		
 	}
@@ -74,7 +76,9 @@ public class ProductController {
 		productModel.addAttribute("product", product1);
 		List<Object> productList=productDAO.listing();
 		productModel.addAttribute("productList", productList);
-		productModel.addAttribute("categoryList", this.fetchCategoryList(categoryDAO.listing()));
+		productModel.addAttribute("categoryListMap", this.fetchCategoryList(categoryDAO.listing()));
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
 		return "Product";
     }	
 	
@@ -86,7 +90,9 @@ public class ProductController {
 		productModel.addAttribute("product", product);
 		List<Object> productList=productDAO.listing();
 		productModel.addAttribute("productList", productList);
-		productModel.addAttribute("categoryList", this.fetchCategoryList(categoryDAO.listing()));
+		productModel.addAttribute("categoryListMap", this.fetchCategoryList(categoryDAO.listing()));
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
 		return "ModifyProduct";		
 		
     }
@@ -100,6 +106,8 @@ public class ProductController {
 		productModel.addAttribute("productList", productList);
 		Product product1=new Product();
 		productModel.addAttribute("product", product1);		
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
 		return "Product";
     }		
 	
@@ -113,7 +121,9 @@ public class ProductController {
 		productModel.addAttribute("product", product1);
 		List<Object> productList=productDAO.listing();
 		productModel.addAttribute("productList", productList);	
-		productModel.addAttribute("categoryList", this.fetchCategoryList(categoryDAO.listing()));
+		productModel.addAttribute("categoryListMap", this.fetchCategoryList(categoryDAO.listing()));
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
 		return "Product";
     } 	
 	
@@ -137,6 +147,8 @@ public class ProductController {
     {
     	List<Object> productList=productDAO.listing();
     	productModel.addAttribute("productList", productList);	
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
     	return "ProductImage";
     }
     
@@ -146,6 +158,8 @@ public class ProductController {
     {
     	Product product=(Product)productDAO.retrieval(productId);
     	productModel.addAttribute("product", product);	
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	    	
     	return "ProductInfo";
     }    
     

@@ -40,7 +40,7 @@
 <td/>
 </tr>
 </table>
-<form action="payment" method="post">
+<form action="orderprocessing" method="post">
 <table class="table bordered">
 <tr bgcolor="cyan">
 <td colspan="7">Payment Details</td>

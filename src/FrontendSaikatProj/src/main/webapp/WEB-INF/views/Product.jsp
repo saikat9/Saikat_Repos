@@ -43,7 +43,7 @@ padding-left: 6.5em;
 <td style="text-align: center;">
 <form:select path="categoryId">
 <form:option value="0" label="-------Category List-------"/>
-<form:options items="${categoryList}"/>
+<form:options items="${categoryListMap}"/>
 </form:select>
 </td>
 </tr>

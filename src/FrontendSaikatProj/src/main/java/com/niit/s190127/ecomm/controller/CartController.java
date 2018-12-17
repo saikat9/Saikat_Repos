@@ -25,6 +25,8 @@ public class CartController {
 	
 	@Autowired
 	GenericDao productDAO;
+	@Autowired
+	GenericDao categoryDAO;	
 	
 	//Method to display cartItems for user 
 	@RequestMapping(value="/cartitems")
@@ -34,6 +36,8 @@ public class CartController {
 		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		cartModel.addAttribute("listCartItems", listCartItems); 
 		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems)); 
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);	  
 		return "Cart";
 	}
 	
@@ -55,6 +59,8 @@ public class CartController {
 		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		cartModel.addAttribute("listCartItems", listCartItems); 
 		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems)); 
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);		
 		return "Cart";
     }
 	
@@ -78,7 +84,9 @@ public class CartController {
     public String amendCartItem(@PathVariable("cartId")int cartId,Model cartModel)
     {
 		CartItem cartItem= cartItemDAO.retrieveCartItem(cartId);
-		cartModel.addAttribute("cartItem", cartItem);	
+        cartModel.addAttribute("cartItem", cartItem);	
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);        
 		return "ModifyCart";
     }		
 	
@@ -96,6 +104,8 @@ public class CartController {
 		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		cartModel.addAttribute("listCartItems", listCartItems);
 		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);		
 		return "Cart";
 	}
 	
@@ -109,6 +119,8 @@ public class CartController {
 		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		cartModel.addAttribute("listCartItems", listCartItems);
 		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));		
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);
 		return "Cart";
 	}
 	
@@ -120,6 +132,8 @@ public class CartController {
 		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		cartModel.addAttribute("listCartItems", listCartItems);
 		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));		
+		List<Object> categoryList = categoryDAO.listing();
+		cartModel.addAttribute("categoryList", categoryList);
 		return "PaymentConfirmation";		
 	}
 }
