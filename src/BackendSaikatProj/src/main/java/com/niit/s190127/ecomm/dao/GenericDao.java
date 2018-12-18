@@ -12,5 +12,6 @@ public interface GenericDao {
 	public boolean deletion(Object obj);
 	public boolean updation(Object obj);
 	public Object  retrieval(int Id);
-	public List<Object> listing();	
+	public List<Object> listing();
+	List<Object> listingCategoryWise(int categoryId);	
 }

@@ -2,20 +2,23 @@ package com.niit.s190127.ecomm.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table
 public class UserDetail {
 	
 	@Id
-	String username;
-	String password;
-	boolean enabled;
-	String role;
-	String customerName;
-	String mobileNo;
-	String emailId;
-	String address;
+	private String username;
+	private String password;
+	private boolean enabled;
+	private String role;
+	private String customerName;
+	private String mobileNo;
+	private String emailId;
+	private String address;
+	@Transient
+	private String message;
 	/**
 	 * @return the username
 	 */
@@ -111,6 +114,18 @@ public class UserDetail {
 	 */
 	public void setAddress(String address) {
 		this.address = address;
+	}
+	/**
+	 * @return the message
+	 */
+	public String getMessage() {
+		return message;
+	}
+	/**
+	 * @param message the message to set
+	 */
+	public void setMessage(String message) {
+		this.message = message;
 	}
 
 }

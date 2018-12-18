@@ -111,6 +111,29 @@ public class ProductDAOJunitTesting {
 		
 	}
 	
+	//Test case to check listing method of productdao class wrt category
+    @Ignore
+	@Test
+	public void listingCategoryWiseTest()
+	{
+		List<Object> listProducts = productDAO.listingCategoryWise(123);
+		
+		assertTrue("Problem in listing products",listProducts.size()>0);
+		
+		for(Object obj: listProducts)
+		{
+			Product product=(Product) obj;
+			System.out.print("Category Id:"+product.getCategoryId());
+			System.out.print("Price:"+product.getPrice());
+			System.out.print("Product Description:"+product.getProductDesc());
+			System.out.print("Product ID:"+product.getProductId());
+			System.out.print("Product stock:"+product.getStock());
+			System.out.print("Product supplier id:"+product.getSupplierId());
+			System.out.println("Product name:"+product.getProductName());
+		}
+		
+	}	
+	
   
     
 

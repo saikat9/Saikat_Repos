@@ -35,14 +35,15 @@ public class UserDetailDAOJunitTesting {
 	{
 		UserDetail userDetail=new UserDetail();
 		userDetail.setAddress("Salt lake Kolkata");
-		userDetail.setCustomerName("Rohan Khanna");
-		userDetail.setEmailId("rohan.khanna@gmail.com");
+		userDetail.setCustomerName("Vijay Khanna");
+		userDetail.setEmailId("vijay.khanna@gmail.com");
 		userDetail.setEnabled(true);
 		userDetail.setMobileNo("9876754676");
 		userDetail.setPassword("password");
 		userDetail.setRole("User");
-		userDetail.setUsername("Rohan");
+		userDetail.setUsername("vijay");
 		assertTrue("Problem in registering user detail ",userDetailDAO.registerUser(userDetail));
+		System.out.println(userDetail.getMessage());
 
 	}
 	
@@ -63,7 +64,7 @@ public class UserDetailDAOJunitTesting {
 	}
 	
 	//Test case to check fetch method of user detail class
-	
+	@Ignore
 	@Test
 	public void retrievalUserTest()
 	{

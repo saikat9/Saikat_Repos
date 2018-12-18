@@ -25,6 +25,7 @@ public class UserDetailDaoImpl implements UserDetailDao
 		{
 			
 		sessionFactory.getCurrentSession().save(userDetail);
+		userDetail.setMessage("Successfully Registered");
 		return true;
 		}
 		catch(Exception ex)

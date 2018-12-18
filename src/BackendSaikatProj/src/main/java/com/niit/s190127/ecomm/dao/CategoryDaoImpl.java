@@ -87,4 +87,10 @@ public class CategoryDaoImpl implements GenericDao {
 		 return listCategories;
 	}
 
+	@Override
+	public List<Object> listingCategoryWise(int categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

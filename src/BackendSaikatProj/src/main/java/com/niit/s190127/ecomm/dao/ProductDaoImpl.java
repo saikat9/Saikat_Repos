@@ -86,4 +86,15 @@ public class ProductDaoImpl implements GenericDao {
 		 return listProducts;
 	}
 
+	@Override
+	public List<Object> listingCategoryWise(int categoryId) {
+		// Method to get a list of products
+		 Session session = sessionFactory.openSession();
+		 Query query = session.createQuery("from Product where categoryId=:categoryId");
+		 query.setParameter("categoryId", categoryId);
+		 @SuppressWarnings("unchecked")
+		 List<Object>  listProducts = query.getResultList();
+		 session.close();
+		 return listProducts;
+	}	
 }

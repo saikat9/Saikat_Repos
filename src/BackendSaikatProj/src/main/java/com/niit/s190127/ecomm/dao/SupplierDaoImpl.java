@@ -86,4 +86,10 @@ public class SupplierDaoImpl implements GenericDao {
 		 return listSuppliers;
 	}
 
+	@Override
+	public List<Object> listingCategoryWise(int categoryId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
