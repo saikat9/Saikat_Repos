@@ -52,7 +52,7 @@
             <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Category Types</a>         
             <div class="dropdown-menu">
              <c:forEach items="${categoryList}" var="category">
-               <a class="dropdown-item" href="#">${category.categoryName }</a><br>
+               <a class="dropdown-item" href="<c:url value="/showproductscategorywise/${category.categoryId}"/>">${category.categoryName }</a><br>
              </c:forEach>
             </div>
             </li>	
@@ -61,7 +61,7 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <c:if test="${!sessionScope.loggedIn}">
-            <li><a href="http://localhost:8090/FrontendSaikatProj/"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <li><a href="<c:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </li>
             <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             </li>

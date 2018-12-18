@@ -28,6 +28,8 @@ public class ProductController {
 	@Autowired
 	GenericDao categoryDAO;
 	
+	
+	
 	//Method to display existing products
 	@RequestMapping(value={"/listproducts","*/listproducts"})
 	public String displayProduct(Model productModel)
@@ -151,6 +153,17 @@ public class ProductController {
 		productModel.addAttribute("categoryList", categoryList);	
     	return "ProductImage";
     }
+    
+    //Method to display product images category wise
+    @RequestMapping(value="/showproductscategorywise/{categoryId}")
+    public String displayProductCategoryWise(@PathVariable("categoryId")int categoryId,Model productModel)
+    {
+    	List<Object> productList=productDAO.listingCategoryWise(categoryId);
+    	productModel.addAttribute("productList", productList);	
+		List<Object> categoryList = categoryDAO.listing();
+		productModel.addAttribute("categoryList", categoryList);	
+    	return "ProductImage";
+    }    
     
     //Method to display product information
     @RequestMapping(value={"/productinfo/{productId}","*/productinfo/{productId}"})

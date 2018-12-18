@@ -55,6 +55,15 @@ public class LoginController {
 		loginModel.addAttribute("categoryList", categoryList);			
 		return loginPage; 
 	}
+	
+	//Handling authentication failure
+	
+	@RequestMapping(value="/login_failure")
+	public String loginFailure(Model loginModel)
+	{	
+		loginModel.addAttribute("requesturl", "/login_failure");
+		return "Login";
+	}
 
 }
 

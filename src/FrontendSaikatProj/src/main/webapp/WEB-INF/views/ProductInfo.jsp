@@ -25,12 +25,17 @@ function myFunction() {
 <div class="row">
 <div class="col-xs-4 item-photo">
 <c:set var="pid" value="${product.productName}${product.productId}"/>
-<img src="/resources/images/${product.productName}${product.productId}.jpg"/>
+<img src="/resources/images/${product.productName}${product.productId}.jpg" align="left"/>
 </div>
 <div class="col-xs-5" style="border: 0px solid gray">
 <h3>Product Name: ${product.productName}</h3>
 <h6 class="title-price">
-Stock : ${product.stock}
+Stock : <c:if test="${product.stock > 0}">
+                     ${product.stock}/-
+               </c:if>
+               <c:if test="${product.stock <= 0}">
+                     <font color="red">Out Of Stock</font>
+               </c:if>
 </h6>
 <h3 style="margin-top: 0px;">Price : INR ${product.price}/-</h3>
 <div class="section">

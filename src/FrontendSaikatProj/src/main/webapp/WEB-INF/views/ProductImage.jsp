@@ -32,7 +32,13 @@
 <br><b>Price : ${product.price}/-</b>
 </a>
 <a href="<c:url value="/productinfo/${product.productId}"/>" class="d-block mb-4 h-100">
-<br><b>Stock : ${product.stock}/-</b>
+<br><b>Stock : <c:if test="${product.stock > 0}">
+                     ${product.stock}/-
+               </c:if>
+               <c:if test="${product.stock <= 0}">
+                     <font color="red">Out Of Stock</font>
+               </c:if>
+</b>
 </a>
 </div>
 </c:forEach>

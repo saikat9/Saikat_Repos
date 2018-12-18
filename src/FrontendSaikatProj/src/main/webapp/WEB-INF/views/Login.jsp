@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <html>
 <head>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -22,7 +23,11 @@
     <input type="password" class="form-control" placeholder="" name="password">
   </div>
   
-  
+    <div class="copy-text">
+        <c:if test="${requesturl=='/login_failure'}">
+           <p>Invalid Logon.Try again</p>
+        </c:if>
+    </div>
     <div class="form-check">
     <label class="form-check-label">
       <input type="checkbox" class="form-check-input">

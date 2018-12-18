@@ -12,7 +12,7 @@
     http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
   <security:http auto-config="true" use-expressions="true">
   <security:form-login login-page="/login" default-target-url="/"
-  login-processing-url="/perform_login" authentication-failure-url="/login"
+  login-processing-url="/perform_login" authentication-failure-url="/login_failure"
   authentication-success-forward-url="/login_success"/>
   <security:logout logout-success-url="/login" logout-url="/perform_logout"/>
   <security:csrf disabled="true"/>
