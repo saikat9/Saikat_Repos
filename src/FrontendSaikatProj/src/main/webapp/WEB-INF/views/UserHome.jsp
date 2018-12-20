@@ -2,6 +2,5 @@
 <%@include file="CommonCarousel.jsp" %>
 <html>
 <body>
-user page
 </body>
 </html>

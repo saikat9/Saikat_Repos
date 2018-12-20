@@ -10,6 +10,9 @@ body {
 </style>
 </head>
 <body>
+<br>
+<h3><b>About us:-</b></h3>
+<br>
 <p>
 Established in 1981, NIIT Limited, a global leader in Skills and Talent Development, offers multi-disciplinary learning management and training delivery solutions to corporations, institutions, and individuals in over 40 countries. The company ranks among the world’s leading training companies owing to its vast, yet comprehensive array of talent development programs.</p>
 <p>
