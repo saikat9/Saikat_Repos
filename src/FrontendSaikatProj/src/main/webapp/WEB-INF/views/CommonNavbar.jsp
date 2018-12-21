@@ -26,7 +26,7 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href = "<c:url value="/login_success"/>">Home <span class="glyphicon glyphicon-home"></span></a>
+            <li class="active"><a href = "<c:url value="/home"/>">Home <span class="glyphicon glyphicon-home"></span></a>
             </li>
             <li><a href="<c:url value="/aboutus"/>">About Us </a>
             </li>

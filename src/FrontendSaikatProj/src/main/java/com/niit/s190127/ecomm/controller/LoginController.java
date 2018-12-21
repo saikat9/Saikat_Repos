@@ -36,19 +36,20 @@ public class LoginController {
 		for(GrantedAuthority role:roles)
 		{
 			session.setAttribute("role", role.getAuthority());
-			if(role.getAuthority().equals("Admin"))
-			{
+            switch (role.getAuthority()) {
+			case "Admin":
+			case "User":	
 				loggedIn=true;
-				loginPage="AdminHome";
-				session.setAttribute("loggedIn", loggedIn);
-				session.setAttribute("username", username);
-			}
-			else
-			{
-				loggedIn=true;
-				loginPage="UserHome";
+				loginPage="Home";
 				session.setAttribute("loggedIn", loggedIn);
 				session.setAttribute("username", username);				
+				break;
+			default:
+				loggedIn=false;
+				loginPage="Home";
+				session.setAttribute("loggedIn", loggedIn);
+				session.setAttribute("username", username);				
+				break;
 			}
 		}
 		List<Object> categoryList = categoryDAO.listing();

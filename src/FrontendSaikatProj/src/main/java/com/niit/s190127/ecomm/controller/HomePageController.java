@@ -56,7 +56,16 @@ public class HomePageController {
 	   
    }
    
- 
+   //Method to display home page
+   @RequestMapping(value="/home")
+   public String homePage(Model home)
+   {
+
+		List<Object> categoryList = categoryDAO.listing();
+		home.addAttribute("categoryList", categoryList);	   
+	    return "Home";
+	   
+   }   
    
    //Method to display aboutus page
    @RequestMapping(value= {"/aboutus","*/aboutus"})
