@@ -19,15 +19,30 @@
 <table class="center">
 <tr>
 <td style="text-align: center;">Category ID</td>
-<td style="text-align: center;"><input type="text" id="categoryId" name="categoryId" value="${category.categoryId}"></td>
+<td style="text-align: center;"><input type="text" id="categoryId" name="categoryId" value="${category.categoryId}" readonly="readonly"></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td style="text-align: center;">Category Name</td>
 <td style="text-align: center;"><input type="text" id="categoryName" name="categoryName" value="${category.categoryName}"></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Category Description</td>
 <td style="text-align: center;"><input type="text" id="categoryDesc" name="categoryDesc" value="${category.categoryDesc}"></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td/>

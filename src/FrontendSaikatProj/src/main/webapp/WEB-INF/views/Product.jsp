@@ -23,7 +23,7 @@ padding-left: 6.5em;
 </head>
 <body>
 <h3 align="center">Product menu</h3>
-<div class="container">
+<div class="container-fluid">
 <form:form action="includeproduct" modelAttribute="product" method="post" enctype="multipart/form-data">
 <table class="center" class="table table-bordered">
 <tr>
@@ -31,12 +31,27 @@ padding-left: 6.5em;
 <td style="text-align: center;"><form:input path="productName"/></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Price</td>
 <td style="text-align: center;"><form:input path="price"/></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Stock</td>
 <td style="text-align: center;"><form:input path="stock"/></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td style="text-align: center;">Category</td>
@@ -48,12 +63,27 @@ padding-left: 6.5em;
 </td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">SupplierId</td>
 <td style="text-align: center;"><form:input path="supplierId"/></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Product Description</td>
 <td style="text-align: center;"><form:input path="productDesc"/></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td style="text-align: center;">Product Image</td>
@@ -70,6 +100,7 @@ padding-left: 6.5em;
 </tr>
 </table>
 </form:form>
+<br>
 <table class="center" class="table table-bordered" border="1">
 <tr>
 <td style="text-align: center;">Product ID</td>

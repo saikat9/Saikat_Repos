@@ -15,7 +15,7 @@ body {
             <tr>
                 <td style="height: 34px">
                     <span lang=EN-US style="font-size:11pt;font-family:'Calibri','sans-serif'">
-<span style="font-size:14pt"><strong>Get In Touch</strong></span>
+<span style="font-size:14pt"><strong>Get In Touch:-</strong></span>
 
 
 <span style="font-size:12pt"><br><br><br><br><br>As a student of NIIT, for any kind of assistance, you can contact the Student Services Advisor (SSA) /Faculty /GL /Centre Head at your NIIT Education centre.</span>

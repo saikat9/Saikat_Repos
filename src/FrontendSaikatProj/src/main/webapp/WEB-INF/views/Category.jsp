@@ -23,8 +23,18 @@ body {
 <td style="text-align: center;"><input type="text" name="categoryName"></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Category Description</td>
 <td style="text-align: center;"><input type="text" name="categoryDesc"></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td/>
@@ -32,6 +42,7 @@ body {
 </tr>
 </table>
 </form>
+<br>
 <table class="center" border="1">
 <tr>
 <td style="text-align: center;">Category ID</td>
