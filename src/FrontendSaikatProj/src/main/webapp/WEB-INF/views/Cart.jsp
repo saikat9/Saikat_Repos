@@ -3,8 +3,15 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style type="text/css">
+
+body {
+    background-color: silver;
+}
+</style>
 </head>
 <body>
+<div class="container-fluid">
 <h3 align="center">Cart</h3>
 <table class="table bordered">
 <tr bgcolor="green">
@@ -41,18 +48,22 @@
 </c:forEach>
 
 <tr bgcolor="cyan">
-<td ><b>Total Cart Price</b></td>
 <td/>
 <td/>
-<td/>	
+<td/>
+<td><b>Total Cart Price</b></td>	
 <td ><b>Rs.${cartTotalPrice}/-</b></td>
 <td/>
 <td/>
 </tr>
-<tr bgcolor="silver">
-<td colspan="3"><a href="<c:url value="/showproductimage"/>"><b>Continue Shopping</b></a></td>
-<td colspan="4"><a href="<c:url value="/checkout"/>"><b>Checkout</b></a></td>
+<tr bgcolor="teal">
+<td colspan="3"><a href="<c:url value="/showproductimage"/>"><b><font color="white">Continue Shopping</font></b></a></td>
+<td/>
+<td/>
+<td/>
+<td colspan="4"><a href="<c:url value="/checkout"/>" class="btn btn-success"><b>Checkout</b></a></td>
 </tr>
 </table>
+</div>
 </body>
 </html>

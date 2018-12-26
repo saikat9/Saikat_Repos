@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.util.LinkedHashMap;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,7 +18,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.niit.s190127.ecomm.dao.CartItemDao;
 import com.niit.s190127.ecomm.dao.GenericDao;
+import com.niit.s190127.ecomm.model.CartItem;
 import com.niit.s190127.ecomm.model.Category;
 import com.niit.s190127.ecomm.model.Product;
 
@@ -27,6 +31,8 @@ public class ProductController {
 	GenericDao productDAO;
 	@Autowired
 	GenericDao categoryDAO;
+	@Autowired
+	CartItemDao cartItemDAO;	
 	
 	
 	
@@ -167,12 +173,15 @@ public class ProductController {
     
     //Method to display product information
     @RequestMapping(value={"/productinfo/{productId}","*/productinfo/{productId}"})
-    public String displayProductInfo(@PathVariable("productId")int productId,Model productModel)
+    public String displayProductInfo(@PathVariable("productId")int productId,Model productModel,HttpSession httpSession)
     {
     	Product product=(Product)productDAO.retrieval(productId);
     	productModel.addAttribute("product", product);	
 		List<Object> categoryList = categoryDAO.listing();
-		productModel.addAttribute("categoryList", categoryList);	    	
+		productModel.addAttribute("categoryList", categoryList);
+		String userName=(String)httpSession.getAttribute("username");
+		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
+		productModel.addAttribute("listCartItems", listCartItems); 		
     	return "ProductInfo";
     }    
     

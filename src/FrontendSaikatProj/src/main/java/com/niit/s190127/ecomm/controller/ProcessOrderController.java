@@ -18,6 +18,7 @@ import com.niit.s190127.ecomm.dao.GenericDao;
 import com.niit.s190127.ecomm.dao.UserDetailDao;
 import com.niit.s190127.ecomm.model.CartItem;
 import com.niit.s190127.ecomm.model.CustomerOrder;
+import com.niit.s190127.ecomm.model.Product;
 import com.niit.s190127.ecomm.model.UserDetail;
 
 @Controller
@@ -31,7 +32,9 @@ public class ProcessOrderController
 	UserDetailDao userDetailDAO;
 	@Autowired
 	GenericDao categoryDAO;	
-
+	@Autowired
+	GenericDao productDAO;
+	
 	//Method to process customer order
 	@RequestMapping(value="/orderprocessing",method=RequestMethod.POST)
 	public String processOrder(@RequestParam("paymentMode")String paymentMode,Model orderModel,HttpSession session)
@@ -52,7 +55,8 @@ public class ProcessOrderController
 		   orderModel.addAttribute("userDetail",userDetail);
 		}
 		List<Object> categoryList = categoryDAO.listing();
-		orderModel.addAttribute("categoryList", categoryList);			
+		orderModel.addAttribute("categoryList", categoryList);	
+		this.productStockUpdate(listCartItems);
 		return "PaymentReceipt";
 	}
 	
@@ -70,4 +74,22 @@ public class ProcessOrderController
 		}
 		return totalPrice;
 	}
+	
+	//Update product stock after placing order
+	public void productStockUpdate(List<CartItem> listCartItems)
+	{
+		
+		int counter=0;
+		while (counter<listCartItems.size()) 
+		{
+			
+			CartItem cartItem=listCartItems.get(counter);
+			Object productObj=productDAO.retrieval(cartItem.getProductId());
+		    Product product=(Product) productObj;
+			product.setStock(product.getStock()-cartItem.getQuantity());
+			productDAO.updation(product);
+			counter++;
+		}
+	
+	}	
 }

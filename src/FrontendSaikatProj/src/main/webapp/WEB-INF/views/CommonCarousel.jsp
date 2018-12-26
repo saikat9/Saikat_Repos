@@ -26,6 +26,7 @@ body {
 </style>
 </head>
 <body>
+    <h1 align="center" style="background-color: teal; color: white;">Welcome to NIIT E-Commerce portal</h1>
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
       <!-- Indicators -->
       <ol class="carousel-indicators">

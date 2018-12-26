@@ -11,6 +11,7 @@
  }
    body {
     background-color: silver;
+    
 }
 </style>
 </head>
@@ -36,7 +37,7 @@
                      ${product.stock}/-
                </c:if>
                <c:if test="${product.stock <= 0}">
-                     <font color="red">Out Of Stock</font>
+                     <font color="red">Not available</font>
                </c:if>
 </b>
 </a>

@@ -100,13 +100,35 @@ public class CartController {
 		String userName=(String)httpSession.getAttribute("username");
 		CartItem cartItem= cartItemDAO.retrieveCartItem(cartId);
 		cartItem.setQuantity(quantity);
-		cartItemDAO.amendCartItem(cartItem);
-		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
-		cartModel.addAttribute("listCartItems", listCartItems);
-		cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));
-		List<Object> categoryList = categoryDAO.listing();
-		cartModel.addAttribute("categoryList", categoryList);		
-		return "Cart";
+		List<CartItem> lstCartItems = cartItemDAO.listCartItems(userName);
+		int qty=quantity;
+		for (CartItem crtItem:lstCartItems) 
+		{
+		    if ((crtItem.getProductId()==cartItem.getProductId())
+		    	&& crtItem.getCartId()!=cartItem.getCartId())
+		       {
+		    	  qty=qty+crtItem.getQuantity();
+		       }
+		}
+		Product product=(Product)productDAO.retrieval(cartItem.getProductId());
+		if(qty > product.getStock())
+		{
+	        cartModel.addAttribute("cartItem", cartItem);	
+			List<Object> categoryList = categoryDAO.listing();
+			cartModel.addAttribute("categoryList", categoryList);    			
+			cartModel.addAttribute("warning", "Amended quantity is more than product stock"); 
+			return "ModifyCart";
+		}
+		else
+		{	
+		    cartItemDAO.amendCartItem(cartItem);
+		    List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
+		    cartModel.addAttribute("listCartItems", listCartItems);
+		    cartModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));
+		    List<Object> categoryList = categoryDAO.listing();
+		    cartModel.addAttribute("categoryList", categoryList);
+		    return "Cart";
+		}
 	}
 	
 	//Method to delete cart item by user

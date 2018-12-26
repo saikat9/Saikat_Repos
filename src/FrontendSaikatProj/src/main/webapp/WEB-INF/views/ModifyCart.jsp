@@ -14,6 +14,7 @@
 </style>
 </head>
 <body>
+<div class="container-fluid">
 <h3 align="center">Cart Amendment Page</h3>
 <form action="<c:url value="/modifyCart"/>" method="post">
 <table class="center">
@@ -22,16 +23,47 @@
 <td style="text-align: center;"><input type="text" name="cartId" id="cartId" value="${cartItem.cartId}" readonly="readonly"/></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Product Name</td>
 <td style="text-align: center;"><input type="text" name="cartId" id="cartId" value="${cartItem.productName}" readonly="readonly"/></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td style="text-align: center;">Quantity</td>
 <td style="text-align: center;"><input type="text" name="quantity" id="quantity" value="${cartItem.quantity}"/></td>
 </tr>
 <tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
 <td style="text-align: center;">Price</td>
 <td style="text-align: center;"><input type="text" name="cartId" id="cartId" value="${cartItem.price}" readonly="readonly"/></td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
+</tr>
+<tr>
+<td/>
+<td>
+<b><font color="red">${warning}</font></b>
+</td>
+</tr>
+<tr>
+<td>
+<br>
+</td>
 </tr>
 <tr>
 <td/>
@@ -39,5 +71,6 @@
 </tr>
 </table>
 </form>
+</div>
 </body>
 </html>

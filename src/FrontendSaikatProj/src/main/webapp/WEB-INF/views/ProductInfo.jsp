@@ -10,10 +10,15 @@
 
    body {
     background-color: silver;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    
 }
 </style>
 </head>
 <body>
+<h1>Product information:-</h1>
 <script>
 function myFunction() {
     document.getElementById("quantity").stepUp(5);
@@ -22,11 +27,13 @@ function myFunction() {
 <br/><br/><br/>
 <form action="<c:url value="/addtocart/${product.productId}"/>" method="post">
 <div class="container">
-<div class="row">
+<div class="row"> 
 <div class="col-xs-4 item-photo">
 <c:set var="pid" value="${product.productName}${product.productId}"/>
-<img src="/resources/images/${product.productName}${product.productId}.jpg" align="left"/>
+<img src="/resources/images/${product.productName}${product.productId}.jpg" align="middle"/>
 </div>
+</div> 
+<div class="row">
 <div class="col-xs-5" style="border: 0px solid gray">
 <h3>Product Name: ${product.productName}</h3>
 <h6 class="title-price">
@@ -34,7 +41,7 @@ Stock : <c:if test="${product.stock > 0}">
                      ${product.stock}/-
                </c:if>
                <c:if test="${product.stock <= 0}">
-                     <font color="red">Out Of Stock</font>
+                     <font color="red"><b>Not available</b></font>
                </c:if>
 </h6>
 <h3 style="margin-top: 0px;">Price : INR ${product.price}/-</h3>
@@ -48,10 +55,22 @@ Description : ${product.productDesc}
 </div>
 </div>
 <div>
-<input value="1" name="quantity" id="quantity" type="number" min="1"/>
+<c:set var="stock" value="0"></c:set>
+<c:forEach items="${listCartItems}" var="cartItem">
+<c:if test="${cartItem.productId == product.productId}">
+<c:set var="stock" value="${stock + cartItem.quantity}"></c:set>
+</c:if>
+</c:forEach>
+<c:if test="${(product.stock - stock) > 0}">
+<h3>Quantity:-</h3>
+<input value="1" name="quantity" id="quantity" type="number" min="1" max="${product.stock- stock}"/>
+</c:if>
 </div>
+<br>
 <div class="section" style="padding-bottom: 20px;">
+<c:if test="${(product.stock - stock) > 0}">
 <input type="submit" class="btn btn-success" value="Add To Cart">
+</c:if>
 </div>
 </div>
 </div>

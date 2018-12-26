@@ -26,30 +26,36 @@
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav">
-            <li class="active"><a href = "<c:url value="/home"/>">Home <span class="glyphicon glyphicon-home"></span></a>
-            </li>
-            <li><a href="<c:url value="/aboutus"/>">About Us </a>
-            </li>
-            <li><a href="<c:url value="/contactus"/>">Contact Us</a>
-            </li>
+            <!--<li class="active"><a href = "<c:url value="/home"/>">Home <span class="glyphicon glyphicon-home"></span></a>
+            </li>  -->
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Home.jsp' ? ' active' : ''}"><a href = "<c:url value="/home"/>">Home <span class="glyphicon glyphicon-home"></span></a>
+            </li>              
+            <!--<li><a href="<c:url value="/aboutus"/>">About Us </a>
+            </li>  -->
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/AboutUs.jsp' ? ' active' : ''}"><a href="<c:url value="/aboutus"/>">About Us </a>
+            </li>            
+            <!-- <li><a href="<c:url value="/contactus"/>">Contact Us</a>
+            </li> -->
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/ContactUs.jsp' ? ' active' : ''}"><a href="<c:url value="/contactus"/>">Contact Us</a>
+            </li>           
           <c:if test="${sessionScope.loggedIn }">
            <c:if test="${sessionScope.role=='Admin'}">
-            <li>
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Category.jsp' ? ' active' : ''}">
             <a href="<c:url value="/listcategories"/>">Manage Category</a>
              </li>
-            <li >
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Product.jsp' ? ' active' : ''}">
             <a href="<c:url value="/listproducts"/>">Manage Product</a>
             </li>
             </c:if>
             <c:if test="${sessionScope.role=='User'}">
-            <li >
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/ProductImage.jsp' ? ' active' : ''}">
             <a href="<c:url value="/showproductimage"/>">ProductImage</a>
             </li> 
-            <li >
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Cart.jsp' ? ' active' : ''}">
             <a href="<c:url value="/cartitems"/>">CartMenu</a>
             </li> 
            <li class="nav-item dropdown"> 
-            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Category Types</a>         
+            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">Category Types</a>   
             <div class="dropdown-menu">
              <c:forEach items="${categoryList}" var="category">
                <a class="dropdown-item" href="<c:url value="/showproductscategorywise/${category.categoryId}"/>">${category.categoryName }</a><br>
@@ -61,9 +67,11 @@
           </ul>
           <ul class="nav navbar-nav navbar-right">
            <c:if test="${!sessionScope.loggedIn}">
-            <li><a href="<c:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Register.jsp' ? ' active' : ''}">
+            <a href="<c:url value="/register"/>"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
             </li>
-            <li><a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span>Login</a>
+            <li class="${pageContext.request.requestURI eq '/FrontendSaikatProj/WEB-INF/views/Login.jsp' ? ' active' : ''}">
+            <a href="<c:url value="/login"/>"><span class="glyphicon glyphicon-log-in"></span>Login</a>
             </li>
             </c:if>
             <c:if test="${sessionScope.loggedIn }">
