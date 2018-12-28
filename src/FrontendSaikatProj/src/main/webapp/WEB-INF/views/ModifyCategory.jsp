@@ -1,5 +1,6 @@
- <%@include file="CommonNavbar.jsp" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.role=='Admin'}">
+<%@include file="CommonNavbar.jsp" %>
 <html>
 <head>
 <style type="text/css">
@@ -52,3 +53,4 @@
 </form>
 </body>
 </html>
+</c:if>

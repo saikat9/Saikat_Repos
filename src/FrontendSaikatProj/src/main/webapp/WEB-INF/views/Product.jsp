@@ -1,6 +1,7 @@
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.role=='Admin'}">
 <%@include file="CommonNavbar.jsp" %>
 <%@taglib uri="http://www.springframework.org/tags/form" prefix="form"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -134,3 +135,4 @@ padding-left: 6.5em;
 </div>
 </body>
 </html>
+</c:if>

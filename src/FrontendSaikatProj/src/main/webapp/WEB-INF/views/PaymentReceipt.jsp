@@ -1,5 +1,6 @@
-<%@include file="CommonNavbar.jsp" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<c:if test="${sessionScope.role=='User'}">
+<%@include file="CommonNavbar.jsp" %>
 <html>
 <head>
 <style type="text/css">
@@ -8,6 +9,9 @@
     margin-left:auto; 
     margin-right:auto;
  }
+ body {
+    background-color: silver;
+}
  </style>
 </head>
 <body>
@@ -24,7 +28,13 @@
 <td>Customer Name</td>
 <td>${userDetail.username}</td>
 <td>Payment Mode</td>
-<td>${customerOrder.paymentMode}</td>
+<!-- <td>${customerOrder.paymentMode}</td> -->
+<c:if test="${customerOrder.paymentMode == 'cardPayment'}">
+<td>Card Payment</td>
+</c:if>
+<c:if test="${customerOrder.paymentMode == ',cashPayment'}">
+<td>Cash Payment</td>
+</c:if>
 </tr>
 <tr bgcolor="cyan">
 <td>Order Delivery Address</td>
@@ -33,7 +43,7 @@
 </table>
 <br><br><br>
 <table class="table bordered">
-<tr bgcolor="silver">
+<tr bgcolor="teal" style="color: white;">
 <td><b> SL # </b></td>
 <td><b> Product Name</b></td>
 <td><b> Quantity</b></td>
@@ -44,7 +54,7 @@
 
 <c:forEach items="${listCartItems}" var="cartItem" varStatus="loop">
 <!-- <form action="<c:url value="/amendcartitem/${cartItem.cartId}"/>" method="get"> -->
-<tr>
+<tr bgcolor="teal" style="color: white;">
 
 <td>${loop.index + 1}</td>
 <td> ${cartItem.productName}</td>
@@ -56,10 +66,10 @@
 <!-- </form> -->
 </c:forEach>
 <tr bgcolor="cyan">
-<td ><b>Total Cart Price</b></td>
 <td/>
 <td/>
-<td/>	
+<td/>
+<td ><b>Total Cart Price</b></td>	
 <td ><b>Rs.${customerOrder.orderPrice}/-</b></td>
 <td/>
 <td/>
@@ -73,3 +83,4 @@
 </div>
 </body>
 </html>
+</c:if>

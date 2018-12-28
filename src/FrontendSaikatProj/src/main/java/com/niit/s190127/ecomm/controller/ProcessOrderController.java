@@ -35,31 +35,51 @@ public class ProcessOrderController
 	@Autowired
 	GenericDao productDAO;
 	
-	//Method to process customer order
+	//Method to process customer order on cash payment
 	@RequestMapping(value="/orderprocessing",method=RequestMethod.POST)
-	public String processOrder(@RequestParam("paymentMode")String paymentMode,Model orderModel,HttpSession session)
+	public String processCashOrder(@RequestParam("paymentMode")String paymentMode,@RequestParam("cardDetailsIND")String cardDetailsIND,Model orderModel,HttpSession session)
 	{
-		String userName=(String) session.getAttribute("username");
-		List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
-		CustomerOrder customerOrder=new CustomerOrder();
-		customerOrder.setUserName(userName);
-		customerOrder.setDateOfOrder(new Date());
-		customerOrder.setPaymentMode(paymentMode);
-		customerOrder.setOrderPrice(this.cartPriceSum(listCartItems));
-		if(customerOrderDAO.updateCartStatus(userName))
-		{
-		   customerOrderDAO.orderProcess(customerOrder);
+		
+		if(paymentMode.contains("cashPayment") || cardDetailsIND.contains("ON"))	
+		 {
+		   if (cardDetailsIND.contains("ON"))
+		     {
+			    paymentMode="cardPayment";
+		     }
+		   String userName=(String) session.getAttribute("username");
+		   List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
+		   CustomerOrder customerOrder=new CustomerOrder();
+		   customerOrder.setUserName(userName);
+		   customerOrder.setDateOfOrder(new Date());
+		   customerOrder.setPaymentMode(paymentMode);
+		   customerOrder.setOrderPrice(this.cartPriceSum(listCartItems));
+		   if(customerOrderDAO.updateCartStatus(userName))
+		    {
+		       customerOrderDAO.orderProcess(customerOrder);
+		       orderModel.addAttribute("listCartItems", listCartItems);
+		       orderModel.addAttribute("customerOrder", customerOrder);
+		       UserDetail userDetail=userDetailDAO.fetchUser(userName);
+		       orderModel.addAttribute("userDetail",userDetail);
+		    }
+		   List<Object> categoryList = categoryDAO.listing();
+		   orderModel.addAttribute("categoryList", categoryList);	
+	       this.productStockUpdate(listCartItems);	
+		   return "PaymentReceipt";
+		 }  
+		else
+		 {	
+		   String userName=(String)session.getAttribute("username");
+		   List<CartItem> listCartItems = cartItemDAO.listCartItems(userName);
 		   orderModel.addAttribute("listCartItems", listCartItems);
-		   orderModel.addAttribute("customerOrder", customerOrder);
-		   UserDetail userDetail=userDetailDAO.fetchUser(userName);
-		   orderModel.addAttribute("userDetail",userDetail);
-		}
-		List<Object> categoryList = categoryDAO.listing();
-		orderModel.addAttribute("categoryList", categoryList);	
-		this.productStockUpdate(listCartItems);
-		return "PaymentReceipt";
+		   orderModel.addAttribute("cartTotalPrice", this.cartPriceSum(listCartItems));		
+		   List<Object> categoryList = categoryDAO.listing();
+		   orderModel.addAttribute("categoryList", categoryList);			
+		   orderModel.addAttribute("cardDetailsInd", "on");
+		   return "PaymentConfirmation";
+		 }
 	}
 	
+
 	//Calculate total price of cart items
 	public int cartPriceSum(List<CartItem> listCartItems)
 	{
